@@ -1,6 +1,5 @@
 package com.bliss.questionsapp.questions.healthcheck.ui.view
 
-import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -32,7 +31,7 @@ class HealthCheckFragment : Fragment() {
     private fun setupHealthObserver() {
         viewModel.health.observe(this, Observer { healthStatus ->
             viewModel.showLoading(false)
-            if (healthStatus.status == "OK") {
+            if (healthStatus.status == resources.getString(R.string.status_ok)) {
                 val action =
                     HealthCheckFragmentDirections.actionHealthCheckFragmentToQuestionListFragment()
                 findNavController().navigate(action)
