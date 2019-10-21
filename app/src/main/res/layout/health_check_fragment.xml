@@ -20,8 +20,7 @@
             app:hasConnectionProblems="@{viewModel.hasConnectionProblems}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:loadingStatus="@{viewModel.loading}"
-            app:noConnectionTitle="@{viewModel.noConnectionTitle}" />
+            app:loadingStatus="@{viewModel.loading}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
