@@ -17,9 +17,11 @@
         <include
             android:id="@+id/i_base_layout"
             layout="@layout/base_layout"
+            app:hasConnectionProblems="@{viewModel.hasConnectionProblems}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:status="@{viewModel.loading}" />
+            app:loadingStatus="@{viewModel.loading}"
+            app:noConnectionTitle="@{viewModel.noConnectionTitle}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

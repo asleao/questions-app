@@ -5,8 +5,12 @@ import androidx.lifecycle.ViewModel
 
 class HealthCheckViewModel : ViewModel() {
     val loading = MutableLiveData<Boolean>()
+    val hasConnectionProblems = MutableLiveData<Boolean>()
+    val noConnectionTitle = MutableLiveData<String>()
 
     init {
-        loading.value = true
+        loading.value = false
+        hasConnectionProblems.value = false
+        noConnectionTitle.value = "Teste"
     }
 }

@@ -6,7 +6,15 @@
         <import type="androidx.lifecycle.LiveData" />
 
         <variable
-            name="status"
+            name="loadingStatus"
+            type="LiveData&lt;Boolean&gt;" />
+
+        <variable
+            name="noConnectionTitle"
+            type="LiveData&lt;String&gt;" />
+
+        <variable
+            name="hasConnectionProblems"
             type="LiveData&lt;Boolean&gt;" />
     </data>
 
@@ -19,11 +27,11 @@
         <com.github.ybq.android.spinkit.SpinKitView
             android:id="@+id/pb_base"
             style="@style/SpinKitView.Large.ThreeBounce"
-            app:isVisible="@{status}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             app:SpinKit_Color="@color/colorAccent"
+            app:isVisible="@{loadingStatus}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -36,6 +44,7 @@
             style="@style/TextAppearance.MaterialComponents.Headline6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@{noConnectionTitle}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -56,7 +65,7 @@
             android:id="@+id/group_no_connection"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:constraint_referenced_ids="tv_no_conection,bt_try_again" />
+            app:constraint_referenced_ids="tv_no_conection,bt_try_again"
+            app:isVisible="@{hasConnectionProblems}" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
