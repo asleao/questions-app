@@ -13,6 +13,7 @@ import kotlinx.coroutines.launch
 class HealthCheckViewModel(private val healthRepository: HealthRepository) : ViewModel() {
     val loading = MutableLiveData<Boolean>()
     val hasConnectionProblems = MutableLiveData<Boolean>()
+    val errorMessage = MutableLiveData<String>()
 
     private val _error = MutableLiveData<Error>()
     val error: LiveData<Error>
@@ -32,6 +33,10 @@ class HealthCheckViewModel(private val healthRepository: HealthRepository) : Vie
 
     fun hasConnectionProblems(status: Boolean) {
         hasConnectionProblems.value = status
+    }
+
+    fun changeErrorMessage(message: String) {
+        errorMessage.value = message
     }
 
     private fun checkHealth() {

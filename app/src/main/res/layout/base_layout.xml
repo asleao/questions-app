@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools">
 
     <data class=".databinding.LiveDataBinding">
 
@@ -10,7 +10,7 @@
             type="LiveData&lt;Boolean&gt;" />
 
         <variable
-            name="noConnectionTitle"
+            name="errorMessage"
             type="LiveData&lt;String&gt;" />
 
         <variable
@@ -48,24 +48,25 @@
             android:layout_marginLeft="@dimen/spacing_default"
             android:layout_marginEnd="@dimen/spacing_default"
             android:layout_marginRight="@dimen/spacing_default"
+            android:text="@{errorMessage}"
             android:textAlignment="center"
-            android:text="@string/connection_problem"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/connection_problem" />
 
         <Button
             android:id="@+id/bt_try_again"
             style="@style/MainButtonTheme"
-            android:text="@string/try_again"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_no_conection"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0"
+            android:text="@string/try_again" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/group_no_connection"
