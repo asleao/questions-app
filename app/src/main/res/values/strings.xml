@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">QuestionsApp</string>
+    <string name="connection_problem">Problems with your connection :(</string>
+    <string name="try_again">Try again?</string>
 </resources>

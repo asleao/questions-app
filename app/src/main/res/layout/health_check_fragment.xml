@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.bliss.questionsapp.questions.healthcheck.viewmodel.HealthCheckViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fg_movie_review"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/i_base_layout"
+            layout="@layout/base_layout"
+            app:hasConnectionProblems="@{viewModel.hasConnectionProblems}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:loadingStatus="@{viewModel.loading}"
+            app:errorMessage="@{viewModel.errorMessage}"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

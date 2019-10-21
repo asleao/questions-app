@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data class=".databinding.LiveDataBinding">
+
+        <import type="androidx.lifecycle.LiveData" />
+
+        <variable
+            name="loadingStatus"
+            type="LiveData&lt;Boolean&gt;" />
+
+        <variable
+            name="errorMessage"
+            type="LiveData&lt;String&gt;" />
+
+        <variable
+            name="hasConnectionProblems"
+            type="LiveData&lt;Boolean&gt;" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cl_base_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/pb_base"
+            style="@style/SpinKitView.Large.ThreeBounce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:SpinKit_Color="@color/colorAccent"
+            app:isVisible="@{loadingStatus}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tv_no_conection"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_default"
+            android:layout_marginLeft="@dimen/spacing_default"
+            android:layout_marginEnd="@dimen/spacing_default"
+            android:layout_marginRight="@dimen/spacing_default"
+            android:text="@{errorMessage}"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/connection_problem" />
+
+        <Button
+            android:id="@+id/bt_try_again"
+            style="@style/MainButtonTheme"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_no_conection"
+            app:layout_constraintVertical_bias="0.0"
+            android:text="@string/try_again" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group_no_connection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="tv_no_conection,bt_try_again"
+            app:isVisible="@{hasConnectionProblems}" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
