@@ -1,6 +1,5 @@
 package com.bliss.questionsapp.questions.healthcheck.ui.view
 
-import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -43,14 +42,9 @@ class HealthCheckFragment : Fragment() {
     }
 
     private fun setupErrorObserver() {
-        viewModel.error.observe(this, Observer { error ->
+        viewModel.error.observe(this, Observer {
             viewModel.showLoading(false)
-            AlertDialog.Builder(context)
-                .setTitle(error.title)
-                .setMessage(error.message)
-                .setPositiveButton(R.string.dialog_ok, null)
-                .create()
-                .show()
+            viewModel.hasConnectionProblems(true)
         })
     }
 
