@@ -1,4 +1,4 @@
-package com.bliss.questionsapp.commons.healthcheck.ui.view
+package com.bliss.questionsapp.questions.healthcheck.ui.view
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.bliss.questionsapp.R
-import com.bliss.questionsapp.commons.healthcheck.viewmodel.HealthCheckViewModel
+import com.bliss.questionsapp.questions.healthcheck.viewmodel.HealthCheckViewModel
 
 class HealthCheckFragment : Fragment() {
 

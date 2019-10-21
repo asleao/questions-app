@@ -1,4 +1,4 @@
-package com.bliss.questionsapp.commons.healthcheck.viewmodel
+package com.bliss.questionsapp.questions.healthcheck.viewmodel
 
 import androidx.lifecycle.ViewModel
 
