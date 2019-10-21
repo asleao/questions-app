@@ -1,12 +1,13 @@
-package com.bliss.questionsapp
+package com.bliss.questionsapp.questions
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.bliss.questionsapp.R
 
-class MainActivity : AppCompatActivity() {
+class QuestionActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.question_activity)
     }
 }
