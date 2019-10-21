@@ -8,7 +8,6 @@
     <fragment
         android:id="@+id/healthCheckFragment"
         android:name="com.bliss.questionsapp.questions.healthcheck.ui.view.HealthCheckFragment"
-        android:label="health_check_fragment"
         tools:layout="@layout/health_check_fragment" >
         <action
             android:id="@+id/action_healthCheckFragment_to_questionListFragment"
@@ -17,6 +16,14 @@
     <fragment
         android:id="@+id/questionListFragment"
         android:name="com.bliss.questionsapp.questions.list.ui.view.QuestionListFragment"
-        android:label="question_list_fragment"
-        tools:layout="@layout/question_list_fragment" />
+        tools:layout="@layout/question_list_fragment" >
+        <action
+            android:id="@+id/action_questionListFragment_to_questionDetailFragment"
+            app:destination="@id/questionDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionDetailFragment"
+        android:name="com.bliss.questionsapp.questions.details.ui.view.QuestionDetailFragment"
+        tools:layout="@layout/question_detail_fragment"
+        android:label="QuestionDetailFragment" />
 </navigation>

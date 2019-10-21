@@ -24,7 +24,13 @@ class QuestionActivity : AppCompatActivity() {
 
         val navController = host.navController
 
-        appBarConfiguration = AppBarConfiguration(navController.graph)
+        appBarConfiguration = AppBarConfiguration
+            .Builder(
+                R.id.healthCheckFragment,
+                R.id.questionListFragment
+            )
+            .build()
+
         setupActionBar(navController, appBarConfiguration)
     }
 
