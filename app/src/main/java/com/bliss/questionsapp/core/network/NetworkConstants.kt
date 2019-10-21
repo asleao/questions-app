@@ -1,6 +1,6 @@
 package com.bliss.questionsapp.core.network
 
-const val SCHEME = "https"
+const val SCHEME = "http"
 const val HOST = "private-anon-bfd11d47b0-blissrecruitmentapi.apiary-mock.com"
 
 const val NETWORK_ERROR_CODE = 503

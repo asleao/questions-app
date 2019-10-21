@@ -9,5 +9,14 @@
         android:id="@+id/healthCheckFragment"
         android:name="com.bliss.questionsapp.questions.healthcheck.ui.view.HealthCheckFragment"
         android:label="health_check_fragment"
-        tools:layout="@layout/health_check_fragment" />
+        tools:layout="@layout/health_check_fragment" >
+        <action
+            android:id="@+id/action_healthCheckFragment_to_questionListFragment"
+            app:destination="@id/questionListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionListFragment"
+        android:name="com.bliss.questionsapp.questions.list.ui.view.QuestionListFragment"
+        android:label="question_list_fragment"
+        tools:layout="@layout/question_list_fragment" />
 </navigation>

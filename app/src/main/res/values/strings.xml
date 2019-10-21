@@ -2,4 +2,5 @@
     <string name="app_name">QuestionsApp</string>
     <string name="connection_problem">You have a connection problem or a system instability</string>
     <string name="try_again">Try again?</string>
+    <string name="dialog_ok"><b>OK</b></string>
 </resources>
