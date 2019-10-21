@@ -46,4 +46,9 @@ class QuestionDetailViewModel(
             resource.validateResponse(_question, _error)
         }
     }
+
+    fun tryAgain() {
+        hasConnectionProblems(false)
+        retrieveQuestion(questionId)
+    }
 }

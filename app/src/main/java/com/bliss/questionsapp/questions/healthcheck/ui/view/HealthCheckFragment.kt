@@ -62,11 +62,11 @@ class HealthCheckFragment : Fragment() {
         )
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
-        setupClickListeners(binding.iBaseLayout.btTryAgain)
+        setupTryAgainClickListener(binding.iBaseLayout.btTryAgain)
         return binding.root
     }
 
-    private fun setupClickListeners(btTryAgain: Button) {
+    private fun setupTryAgainClickListener(btTryAgain: Button) {
         btTryAgain.setOnClickListener {
             viewModel.tryAgain()
         }

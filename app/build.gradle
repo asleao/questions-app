@@ -45,6 +45,9 @@ android {
     packagingOptions {
         exclude "META-INF/LICENSE*"
     }
+    androidExtensions {
+        experimental = true
+    }
 }
 
 dependencies {

@@ -1,3 +1,13 @@
 package com.bliss.questionsapp.questions.commons.model
 
-class Choice(val title: String, val votes: Int)
+import android.os.Parcelable
+import com.squareup.moshi.Json
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+class Choice(
+    @field:Json(name = "choice")
+    val title: String,
+    @field:Json(name = "votes")
+    val votes: Int
+) : Parcelable
