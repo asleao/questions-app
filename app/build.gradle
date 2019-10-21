@@ -102,4 +102,8 @@ dependencies {
 
     // ViewModel Scope
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0"
+
+    // Koin
+    implementation "org.koin:koin-androidx-viewmodel:2.0.1"
+    implementation "org.koin:koin-core:2.0.1"
 }

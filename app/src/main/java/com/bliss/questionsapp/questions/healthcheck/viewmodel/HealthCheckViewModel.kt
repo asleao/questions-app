@@ -10,7 +10,7 @@ class HealthCheckViewModel : ViewModel() {
 
     init {
         loading.value = false
-        hasConnectionProblems.value = false
+        hasConnectionProblems.value = true
         noConnectionTitle.value = "Teste"
     }
 }
