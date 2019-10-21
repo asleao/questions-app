@@ -27,5 +27,9 @@
         android:id="@+id/questionDetailFragment"
         android:name="com.bliss.questionsapp.questions.details.ui.view.QuestionDetailFragment"
         tools:layout="@layout/question_detail_fragment"
-        android:label="QuestionDetailFragment" />
+        android:label="QuestionDetailFragment" >
+        <argument
+            android:name="questionId"
+            app:argType="integer" />
+    </fragment>
 </navigation>

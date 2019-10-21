@@ -1,4 +1,4 @@
-package com.bliss.questionsapp.questions
+package com.bliss.questionsapp.questions.commons
 
 import android.os.Bundle
 import android.view.MenuItem

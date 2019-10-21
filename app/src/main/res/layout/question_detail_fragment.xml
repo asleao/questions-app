@@ -1,13 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".questions.details.ui.view.QuestionDetailFragment">
 
-    <TextView
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.bliss.questionsapp.questions.details.viewmodel.QuestionDetailViewModel" />
+    </data>
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello" />
+        android:fillViewport="true">
 
-</FrameLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include
+                android:id="@+id/i_base_layout"
+                layout="@layout/base_layout"
+                app:errorMessage="@{viewModel.errorMessage}"
+                app:hasConnectionProblems="@{viewModel.hasConnectionProblems}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:loadingStatus="@{viewModel.loading}" />
+            <TextView
+                android:id="@+id/tv_question"
+                style="@style/Subtitle2Theme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_default"
+                android:layout_marginLeft="@dimen/spacing_default"
+                android:layout_marginTop="@dimen/spacing_default"
+                android:layout_marginEnd="@dimen/spacing_default"
+                android:layout_marginRight="@dimen/spacing_default"
+                android:text="@{viewModel.question.title}"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Favourite programming language?" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

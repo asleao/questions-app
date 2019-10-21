@@ -17,7 +17,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         android:usesCleartextTraffic="true">
-        <activity android:name=".questions.QuestionActivity">
+        <activity android:name=".questions.commons.QuestionActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

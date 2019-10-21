@@ -18,6 +18,9 @@ class QuestionListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val action =
+            QuestionListFragmentDirections.actionQuestionListFragmentToQuestionDetailFragment(1)
+        findNavController().navigate(action)
         return inflater.inflate(R.layout.question_list_fragment, container, false)
     }
 
