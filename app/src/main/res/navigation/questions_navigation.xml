@@ -11,7 +11,9 @@
         tools:layout="@layout/health_check_fragment" >
         <action
             android:id="@+id/action_healthCheckFragment_to_questionListFragment"
-            app:destination="@id/questionListFragment" />
+            app:destination="@id/questionListFragment"
+            app:popUpTo="@id/healthCheckFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/questionListFragment"

@@ -12,10 +12,6 @@ import com.bliss.questionsapp.questions.list.viewmodel.QuestionListViewModel
 
 class QuestionListFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = QuestionListFragment()
-    }
-
     private lateinit var viewModel: QuestionListViewModel
 
     override fun onCreateView(
