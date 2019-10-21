@@ -2,10 +2,8 @@ package com.bliss.questionsapp.questions.healthcheck.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bliss.questionsapp.core.base.BaseViewModel
-import com.bliss.questionsapp.core.network.retrofit.model.Error
 import com.bliss.questionsapp.core.utils.validateResponse
 import com.bliss.questionsapp.questions.healthcheck.data.HealthRepository
 import com.bliss.questionsapp.questions.healthcheck.model.HealthResponse

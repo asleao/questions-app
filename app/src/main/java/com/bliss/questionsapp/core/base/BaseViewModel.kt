@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.bliss.questionsapp.core.network.retrofit.model.Error
 
-abstract class BaseViewModel : ViewModel() {
+abstract class BaseViewModel : ViewModel(), BaseViewModelContract {
     val loading = MutableLiveData<Boolean>(false)
     val hasConnectionProblems = MutableLiveData<Boolean>(false)
     val errorMessage = MutableLiveData<String>()
@@ -13,17 +13,17 @@ abstract class BaseViewModel : ViewModel() {
     val error: LiveData<Error>
         get() = _error
 
-    fun showLoading(status: Boolean) {
+    override fun showLoading(status: Boolean) {
         loading.value = status
     }
 
-    fun hasConnectionProblems(status: Boolean) {
+    override fun hasConnectionProblems(status: Boolean) {
         hasConnectionProblems.value = status
     }
 
-    fun changeErrorMessage(message: String) {
+    override fun changeErrorMessage(message: String) {
         errorMessage.value = message
     }
 
-    abstract fun tryAgain()
+    abstract override fun tryAgain()
 }
