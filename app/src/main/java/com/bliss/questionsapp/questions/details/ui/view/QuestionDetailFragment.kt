@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import com.bliss.questionsapp.R
 import com.bliss.questionsapp.databinding.QuestionDetailFragmentBinding
@@ -21,6 +22,16 @@ class QuestionDetailFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         getKoin().setProperty(QUESTIONDETAIL_ARGUMENT, args.questionId)
+        setupObservers()
+    }
+
+    private fun setupObservers() {
+        viewModel.error.observe(this, Observer { error ->
+            viewModel.showLoading(false)
+            viewModel.hasConnectionProblems(true)
+            viewModel.showLoading(false)
+            viewModel.changeErrorMessage("${error.title}\n${error.message}")
+        })
     }
 
     override fun onCreateView(
