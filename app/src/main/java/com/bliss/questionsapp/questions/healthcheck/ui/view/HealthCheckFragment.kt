@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -65,6 +66,13 @@ class HealthCheckFragment : Fragment() {
         )
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
+        setupClickListeners(binding.iBaseLayout.btTryAgain)
         return binding.root
+    }
+
+    private fun setupClickListeners(btTryAgain: Button) {
+        btTryAgain.setOnClickListener {
+            viewModel.tryAgain()
+        }
     }
 }

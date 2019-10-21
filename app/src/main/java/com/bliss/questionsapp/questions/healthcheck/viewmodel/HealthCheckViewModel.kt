@@ -41,4 +41,7 @@ class HealthCheckViewModel(private val healthRepository: HealthRepository) : Vie
         }
     }
 
+    fun tryAgain() {
+        checkHealth()
+    }
 }
