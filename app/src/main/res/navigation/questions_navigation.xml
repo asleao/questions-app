@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/questions_navigation"
+    app:startDestination="@id/healthCheckFragment">
+
+    <fragment
+        android:id="@+id/healthCheckFragment"
+        android:name="com.bliss.questionsapp.questions.healthcheck.ui.view.HealthCheckFragment"
+        android:label="health_check_fragment"
+        tools:layout="@layout/health_check_fragment" />
+</navigation>
