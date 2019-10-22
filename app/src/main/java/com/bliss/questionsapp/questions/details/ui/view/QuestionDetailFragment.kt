@@ -18,7 +18,6 @@ import com.bliss.questionsapp.databinding.QuestionDetailFragmentBinding
 import com.bliss.questionsapp.questions.commons.model.QuestionResponse
 import com.bliss.questionsapp.questions.details.ui.adapters.ChoicesAdapter
 import com.bliss.questionsapp.questions.details.viewmodel.QuestionDetailViewModel
-import com.google.android.material.button.MaterialButton
 import com.squareup.picasso.Picasso
 import org.koin.android.ext.android.getKoin
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -95,7 +94,7 @@ class QuestionDetailFragment : Fragment() {
         return binding.root
     }
 
-    private fun setupShareWithFriendsClickListener(btShare: MaterialButton) {
+    private fun setupShareWithFriendsClickListener(btShare: Button) {
         btShare.setOnClickListener {
             val action =
                 QuestionDetailFragmentDirections
