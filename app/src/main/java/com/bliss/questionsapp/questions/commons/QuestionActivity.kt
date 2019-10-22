@@ -1,4 +1,4 @@
-package com.bliss.questionsapp.questions
+package com.bliss.questionsapp.questions.commons
 
 import android.os.Bundle
 import android.view.MenuItem
@@ -24,6 +24,7 @@ class QuestionActivity : AppCompatActivity() {
 
         val navController = host.navController
 
+        supportActionBar?.setDisplayShowTitleEnabled(false)
         appBarConfiguration = AppBarConfiguration
             .Builder(
                 R.id.healthCheckFragment,

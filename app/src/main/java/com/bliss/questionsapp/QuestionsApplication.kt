@@ -1,7 +1,7 @@
 package com.bliss.questionsapp
 
 import android.app.Application
-import com.bliss.questionsapp.questions.healthcheck.di.healthCheckModule
+import com.bliss.questionsapp.questions.commons.di.questionsModules
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -12,7 +12,7 @@ class QuestionsApplication : Application() {
         startKoin {
             androidLogger()
             androidContext(this@QuestionsApplication)
-            modules(healthCheckModule)
+            modules(questionsModules)
         }
     }
 }

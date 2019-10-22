@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".questions.QuestionActivity">
+    tools:context=".questions.commons.QuestionActivity">
 
     <fragment
         android:id="@+id/fg_question_navhost"
