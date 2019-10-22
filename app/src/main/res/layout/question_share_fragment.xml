@@ -15,7 +15,7 @@
 
         <TextView
             android:id="@+id/tv_share_title"
-            style="@style/Subtitle2Theme"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/share_title"
@@ -27,7 +27,6 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_input"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/spacing_default"
