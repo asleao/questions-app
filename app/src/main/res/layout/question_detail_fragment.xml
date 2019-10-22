@@ -29,9 +29,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:loadingStatus="@{viewModel.loading}" />
+
             <TextView
                 android:id="@+id/tv_question"
-                style="@style/Subtitle2Theme"
+                style="@style/HeaderTheme"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/spacing_default"
@@ -45,6 +46,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Favourite programming language?" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_choices"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/spacing_default"
+                android:layout_marginTop="@dimen/spacing_default"
+                android:layout_marginEnd="@dimen/spacing_default"
+                android:layout_marginBottom="@dimen/spacing_default"
+                app:layout_constraintBottom_toBottomOf="@+id/i_base_layout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_question" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>
