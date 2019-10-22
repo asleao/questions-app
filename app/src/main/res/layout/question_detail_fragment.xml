@@ -24,7 +24,7 @@
             <ImageView
                 android:id="@+id/iv_question_image"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="150dp"
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -77,6 +77,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:loadingStatus="@{viewModel.loading}" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/g_detail_components"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                isVisible="@{!viewModel.hasConnectionProblems &amp;&amp; !viewModel.loading}"
+                app:constraint_referenced_ids="iv_question_image,bt_share,rv_choices,tv_question" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>
