@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bliss.questionsapp.R
 import com.bliss.questionsapp.databinding.QuestionDetailFragmentBinding
+import com.bliss.questionsapp.questions.commons.model.QuestionResponse
 import com.bliss.questionsapp.questions.details.ui.adapters.ChoicesAdapter
 import com.bliss.questionsapp.questions.details.viewmodel.QuestionDetailViewModel
 import com.google.android.material.button.MaterialButton
@@ -40,16 +41,23 @@ class QuestionDetailFragment : Fragment() {
 
     private fun setupQuestionObserver() {
         viewModel.question.observe(this, Observer { question ->
-            Picasso.get()
-                .load(question.imageUrl)
-                .placeholder(R.drawable.loading)
-                .error(R.drawable.no_photo)
-                .into(binding.ivQuestionImage)
-
-            binding.rvChoices.adapter = ChoicesAdapter(question.choices) { choice ->
-                viewModel.updateVotes(choice)
-            }
+            setupQuestionImage(question)
+            setupChoicesList(question)
         })
+    }
+
+    private fun setupQuestionImage(question: QuestionResponse) {
+        Picasso.get()
+            .load(question.imageUrl)
+            .placeholder(R.drawable.loading)
+            .error(R.drawable.no_photo)
+            .into(binding.ivQuestionImage)
+    }
+
+    private fun setupChoicesList(question: QuestionResponse) {
+        binding.rvChoices.adapter = ChoicesAdapter(question.choices) { choice ->
+            viewModel.updateVotes(choice)
+        }
     }
 
     private fun setupErrorObserver() {
