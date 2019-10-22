@@ -23,8 +23,10 @@ class QuestionDetailViewModel(
     }
 
     private fun retrieveQuestion(questionId: Int) {
+        showLoading(true)
         viewModelScope.launch {
             val resource = questionRepository.retrieveQuestion(questionId)
+            showLoading(false)
             resource.validateResponse(_question, _error)
         }
     }
