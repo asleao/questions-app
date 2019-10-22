@@ -5,7 +5,7 @@ import com.squareup.moshi.Json
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-class Choice(
+data class Choice(
     @field:Json(name = "choice")
     val title: String,
     @field:Json(name = "votes")
