@@ -35,7 +35,7 @@ class QuestionDetailFragment : Fragment() {
     private fun setupObservers() {
         viewModel.question.observe(this, Observer { question ->
             binding.rvChoices.adapter = ChoicesAdapter(question.choices) { choice ->
-                Toast.makeText(requireContext(), choice.title, Toast.LENGTH_LONG).show()
+                viewModel.updateVotes(choice)
             }
         })
         setupErrorObserver()

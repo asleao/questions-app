@@ -30,12 +30,14 @@ class ChoicesAdapter(
         fun bind(choice: Choice, choiceAction: (Choice) -> Unit) {
             binding.choice = choice
             binding.ivThumbsup.setOnClickListener {
-                binding.choice = choice.copy(votes = choice.votes.plus(1))
-                choiceAction.invoke(choice)
+                val votedUpChoice = choice.copy(votes = choice.votes.plus(1))
+                binding.choice = votedUpChoice
+                choiceAction.invoke(votedUpChoice)
             }
             binding.ivThumbsdown.setOnClickListener {
-                binding.choice = choice.copy(votes = choice.votes.minus(1))
-                choiceAction.invoke(choice)
+                val votedDownChoice = choice.copy(votes = choice.votes.minus(1))
+                binding.choice = votedDownChoice
+                choiceAction.invoke(votedDownChoice)
             }
         }
     }
