@@ -17,6 +17,7 @@ import com.bliss.questionsapp.databinding.QuestionDetailFragmentBinding
 import com.bliss.questionsapp.questions.details.ui.adapters.ChoicesAdapter
 import com.bliss.questionsapp.questions.details.viewmodel.QuestionDetailViewModel
 import com.google.android.material.button.MaterialButton
+import com.squareup.picasso.Picasso
 import org.koin.android.ext.android.getKoin
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -39,6 +40,12 @@ class QuestionDetailFragment : Fragment() {
 
     private fun setupQuestionObserver() {
         viewModel.question.observe(this, Observer { question ->
+            Picasso.get()
+                .load(question.imageUrl)
+                .placeholder(R.drawable.loading)
+                .error(R.drawable.no_photo)
+                .into(binding.ivQuestionImage)
+
             binding.rvChoices.adapter = ChoicesAdapter(question.choices) { choice ->
                 viewModel.updateVotes(choice)
             }

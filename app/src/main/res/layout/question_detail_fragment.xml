@@ -21,22 +21,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <ImageView
+                android:id="@+id/iv_question_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:background="@tools:sample/avatars" />
+
             <TextView
                 android:id="@+id/tv_question"
                 style="@style/HeaderTheme"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_default"
-                android:layout_marginLeft="@dimen/spacing_default"
-                android:layout_marginTop="@dimen/spacing_default"
-                android:layout_marginEnd="@dimen/spacing_default"
-                android:layout_marginRight="@dimen/spacing_default"
                 android:text="@{viewModel.question.title}"
                 android:textAlignment="center"
                 app:isVisible="@{viewModel.question !=null}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_question_image"
                 tools:text="Favourite programming language?" />
 
             <androidx.recyclerview.widget.RecyclerView
@@ -57,9 +62,9 @@
                 style="@style/MainButtonTheme"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_default"
                 android:text="@string/share_with_friends"
                 app:isVisible="@{viewModel.question !=null}"
-                android:layout_marginBottom="@dimen/spacing_default"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />

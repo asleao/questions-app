@@ -109,4 +109,10 @@ dependencies {
     // Koin
     implementation "org.koin:koin-androidx-viewmodel:2.0.1"
     implementation "org.koin:koin-core:2.0.1"
+
+    //Picture
+    implementation("com.squareup.picasso:picasso:2.71828") {
+        exclude group: "com.android.support"
+        exclude module: ["exifinterface", "support-annotations"]
+    }
 }
