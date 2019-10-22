@@ -35,6 +35,13 @@ class QuestionDetailFragment : Fragment() {
         setupObservers()
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.question.value?.let { question ->
+            setupQuestionImage(question)
+            setupChoicesList(question)
+        }
+    }
     private fun setupObservers() {
         setupQuestionObserver()
         setupErrorObserver()
