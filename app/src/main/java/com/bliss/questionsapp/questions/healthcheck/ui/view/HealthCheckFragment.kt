@@ -37,6 +37,7 @@ class HealthCheckFragment : Fragment() {
                 findNavController().navigate(action)
             } else {
                 viewModel.hasConnectionProblems(true)
+                viewModel.changeErrorMessage(resources.getString(R.string.health_problem))
             }
         })
     }
@@ -46,7 +47,7 @@ class HealthCheckFragment : Fragment() {
             viewModel.showLoading(false)
             viewModel.hasConnectionProblems(true)
             viewModel.showLoading(false)
-            viewModel.changeErrorMessage(error.message)
+            viewModel.changeErrorMessage("${error.title}\n\n${error.message}")
         })
     }
 

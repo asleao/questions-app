@@ -73,7 +73,7 @@ class QuestionDetailFragment : Fragment() {
             viewModel.showLoading(false)
             viewModel.hasConnectionProblems(true)
             viewModel.showLoading(false)
-            viewModel.changeErrorMessage("${error.title}\n${error.message}")
+            viewModel.changeErrorMessage("${error.title}\n\n${error.message}")
         })
     }
 
