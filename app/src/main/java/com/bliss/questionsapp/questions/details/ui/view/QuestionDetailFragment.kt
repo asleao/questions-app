@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -17,6 +16,7 @@ import com.bliss.questionsapp.R
 import com.bliss.questionsapp.databinding.QuestionDetailFragmentBinding
 import com.bliss.questionsapp.questions.details.ui.adapters.ChoicesAdapter
 import com.bliss.questionsapp.questions.details.viewmodel.QuestionDetailViewModel
+import com.google.android.material.button.MaterialButton
 import org.koin.android.ext.android.getKoin
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -33,12 +33,16 @@ class QuestionDetailFragment : Fragment() {
     }
 
     private fun setupObservers() {
+        setupQuestionObserver()
+        setupErrorObserver()
+    }
+
+    private fun setupQuestionObserver() {
         viewModel.question.observe(this, Observer { question ->
             binding.rvChoices.adapter = ChoicesAdapter(question.choices) { choice ->
                 viewModel.updateVotes(choice)
             }
         })
-        setupErrorObserver()
     }
 
     private fun setupErrorObserver() {
@@ -63,8 +67,15 @@ class QuestionDetailFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
         setupTryAgainClickListener(binding.iBaseLayout.btTryAgain)
+        setupShareWithFriendsClickListener(binding.btShare)
         setupRecyclerView(binding.rvChoices)
         return binding.root
+    }
+
+    private fun setupShareWithFriendsClickListener(btShare: MaterialButton) {
+        btShare.setOnClickListener {
+
+        }
     }
 
     private fun setupRecyclerView(rvChoices: RecyclerView) {

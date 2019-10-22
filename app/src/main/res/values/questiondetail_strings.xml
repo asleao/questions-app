@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="votes">Votes: %s</string>
+    <string name="share_with_friends">Share with your friends</string>
 </resources>

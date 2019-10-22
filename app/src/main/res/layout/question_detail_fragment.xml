@@ -47,10 +47,22 @@
                 android:layout_marginTop="@dimen/spacing_default"
                 android:layout_marginEnd="@dimen/spacing_default"
                 android:layout_marginBottom="@dimen/spacing_default"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/bt_share"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_question" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/bt_share"
+                style="@style/MainButtonTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/share_with_friends"
+                app:isVisible="@{viewModel.question !=null}"
+                android:layout_marginBottom="@dimen/spacing_default"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <include
                 android:id="@+id/i_base_layout"
