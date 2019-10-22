@@ -8,6 +8,7 @@ import android.widget.Button
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -89,7 +90,10 @@ class QuestionDetailFragment : Fragment() {
 
     private fun setupShareWithFriendsClickListener(btShare: MaterialButton) {
         btShare.setOnClickListener {
-
+            val action =
+                QuestionDetailFragmentDirections
+                    .actionQuestionDetailFragmentToQuestionShareFragment(args.questionId)
+            findNavController().navigate(action)
         }
     }
 
