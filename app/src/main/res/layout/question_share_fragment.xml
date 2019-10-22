@@ -32,8 +32,6 @@
             android:layout_margin="@dimen/spacing_default"
             android:layout_marginTop="32dp"
             android:hint="@string/share_email"
-            app:error="@{viewModel.errorMessage}"
-            app:errorEnabled="@{viewModel.errorEnabled}"
             app:hintTextColor="@color/colorAccent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -11,9 +11,7 @@ class QuestionShareViewModel(
     private val questionId: Int
 ) : BaseViewModel(){
 
-
     val email = MutableLiveData<String>()
-    val errorEnabled = MutableLiveData<Boolean>()
     val buttonEnabled = MediatorLiveData<Boolean>()
 
     init {
