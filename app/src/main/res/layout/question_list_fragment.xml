@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.bliss.questionsapp.questions.list.viewmodel.QuestionListViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_questions"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <include
+            android:id="@+id/i_base_layout"
+            layout="@layout/base_layout"
+            app:errorMessage="@{viewModel.errorMessage}"
+            app:hasConnectionProblems="@{viewModel.hasConnectionProblems}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:loadingStatus="@{viewModel.loading}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
