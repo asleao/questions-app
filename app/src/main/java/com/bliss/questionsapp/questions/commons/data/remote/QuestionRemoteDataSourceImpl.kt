@@ -1,6 +1,7 @@
 package com.bliss.questionsapp.questions.commons.data.remote
 
 import com.bliss.questionsapp.core.network.retrofit.ServiceGenerator
+import com.bliss.questionsapp.core.network.retrofit.model.Error
 import com.bliss.questionsapp.core.network.retrofit.model.Resource
 import com.bliss.questionsapp.core.network.retrofit.model.RetrofitResponse
 import com.bliss.questionsapp.questions.commons.model.QuestionResponse

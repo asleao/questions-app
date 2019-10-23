@@ -1,5 +1,6 @@
 package com.bliss.questionsapp.questions.share.ui.view
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import com.bliss.questionsapp.R
+import com.bliss.questionsapp.core.network.BUSINESS_LOGIC_ERROR_CODE
+import com.bliss.questionsapp.core.network.GENERIC_MSG_ERROR_TITLE
+import com.bliss.questionsapp.core.network.retrofit.model.Error
 import com.bliss.questionsapp.core.utils.hideSoftInput
 import com.bliss.questionsapp.databinding.QuestionShareFragmentBinding
 import com.bliss.questionsapp.questions.share.viewmodel.QuestionShareViewModel
@@ -55,10 +59,23 @@ class QuestionShareFragment : Fragment() {
     private fun setupErrorObserver() {
         viewModel.error.observe(this, Observer { error ->
             viewModel.showLoading(false)
-            viewModel.hasConnectionProblems(true)
-            viewModel.showLoading(false)
-            viewModel.changeErrorMessage("${error.title}\n\n${error.message}")
+            if (error.codErro == BUSINESS_LOGIC_ERROR_CODE) {
+                showBusinessLogicErrorDialog(error)
+            } else {
+                viewModel.hasConnectionProblems(true)
+                viewModel.changeErrorMessage("${error.title}\n\n${error.message}")
+            }
         })
+    }
+
+    private fun showBusinessLogicErrorDialog(error: Error) {
+        AlertDialog.Builder(context)
+            .setTitle(GENERIC_MSG_ERROR_TITLE)
+            .setMessage(error.message)
+            .setCancelable(false)
+            .setPositiveButton(R.string.status_ok, null)
+            .create()
+            .show()
     }
 
     override fun onCreateView(
