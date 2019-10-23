@@ -1,4 +1,4 @@
-# Question App
+# Question App [![Build Status](https://app.bitrise.io/app/92517aef38eccdc5/status.svg?token=433z4EdOThnK3aqcI1W1CQ)](https://app.bitrise.io/app/92517aef38eccdc5)
 
 This project allows users to search, answer and share questions with friends.
 
