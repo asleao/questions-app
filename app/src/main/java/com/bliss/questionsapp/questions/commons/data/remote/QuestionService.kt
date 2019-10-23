@@ -6,6 +6,14 @@ import retrofit2.Response
 import retrofit2.http.*
 
 interface QuestionService {
+
+    @GET("questions")
+    suspend fun listAllQuestions(
+        @Query("limit") limit: Int,
+        @Query("offset") offset: Int,
+        @Query("filter") filter: String
+    ): Response<List<QuestionResponse>>
+
     @GET("questions/{question_id}")
     suspend fun retrieveQuestion(@Path("question_id") questionId: Int): Response<QuestionResponse>
 

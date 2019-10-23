@@ -25,6 +25,8 @@ class QuestionActivity : AppCompatActivity() {
         val navController = host.navController
 
         supportActionBar?.setDisplayShowTitleEnabled(false)
+        supportActionBar?.setDisplayShowHomeEnabled(false)
+
         appBarConfiguration = AppBarConfiguration
             .Builder(
                 R.id.healthCheckFragment,

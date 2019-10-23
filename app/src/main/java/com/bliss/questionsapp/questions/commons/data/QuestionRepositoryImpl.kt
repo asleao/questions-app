@@ -9,6 +9,14 @@ class QuestionRepositoryImpl(
     private val questionRemoteDataSource: QuestionRemoteDataSource
 ) : QuestionRepository {
 
+    override suspend fun listAllQuestions(
+        limit: Int,
+        offset: Int,
+        filter: String
+    ): Resource<List<QuestionResponse>> {
+        return questionRemoteDataSource.listAllQuestions(limit, offset, filter)
+    }
+
     override suspend fun retrieveQuestion(questionId: Int): Resource<QuestionResponse> {
         return questionRemoteDataSource.retrieveQuestion(questionId)
     }
