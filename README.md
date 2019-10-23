@@ -4,7 +4,7 @@ This project allows users to search, answer and share questions with friends.
 
 ## Project organization
 
-The project is organized in two main packages the **core** and **questions**. 
+The project is organized in two main packages **core** and **questions**. 
 
 ### Core
 
