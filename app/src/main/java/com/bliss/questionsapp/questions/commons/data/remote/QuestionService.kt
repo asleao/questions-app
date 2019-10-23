@@ -7,7 +7,7 @@ import retrofit2.http.*
 
 interface QuestionService {
 
-    @GET("questions/{question_id}")
+    @GET("questions")
     suspend fun listAllQuestions(
         @Query("limit") limit: Int,
         @Query("offset") offset: Int,
