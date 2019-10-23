@@ -7,8 +7,8 @@ import com.bliss.questionsapp.questions.commons.model.ShareResponse
 interface QuestionRepository {
 
     suspend fun listAllQuestions(
-        limit: Int,
-        offset: Int,
+        limit: Int = 10,
+        offset: Int = 10,
         filter: String = ""
     ): Resource<List<QuestionResponse>>
 

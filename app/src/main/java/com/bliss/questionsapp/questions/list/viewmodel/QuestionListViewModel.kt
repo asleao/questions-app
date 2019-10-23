@@ -16,13 +16,13 @@ class QuestionListViewModel(private val questionRepository: QuestionRepository) 
         get() = _questions
 
     init {
-        listAllQuestions(10, 10, "")
+        listAllQuestions("")
     }
 
-    private fun listAllQuestions(limit: Int, offset: Int, query: String) {
+    private fun listAllQuestions(query: String) {
         showLoading(true)
         viewModelScope.launch {
-            val resource = questionRepository.listAllQuestions(limit, offset, query)
+            val resource = questionRepository.listAllQuestions(filter = query)
             showLoading(false)
             resource.validateResponse(_questions, _error)
         }
