@@ -1,5 +1,12 @@
 package com.bliss.questionsapp.core.network.retrofit.model
 
-data class Error(val codErro: Int = -1, val title: String = "", val message: String = "") {
+import com.squareup.moshi.Json
+
+data class Error(
+    val codErro: Int = -1,
+    val title: String = "",
+    @field:Json(name = "status")
+    val message: String = ""
+) {
     fun isValid(): Boolean = codErro != -1 && title.isNotEmpty() && message.isNotEmpty()
 }

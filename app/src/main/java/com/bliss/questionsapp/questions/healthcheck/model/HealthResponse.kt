@@ -1,3 +1,7 @@
 package com.bliss.questionsapp.questions.healthcheck.model
 
-data class HealthResponse(val status: String)
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+data class HealthResponse(val status: String):Parcelable

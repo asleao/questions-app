@@ -1,9 +1,11 @@
 package com.bliss.questionsapp.questions.commons.data.remote
 
 import com.bliss.questionsapp.core.network.retrofit.ServiceGenerator
+import com.bliss.questionsapp.core.network.retrofit.model.Error
 import com.bliss.questionsapp.core.network.retrofit.model.Resource
 import com.bliss.questionsapp.core.network.retrofit.model.RetrofitResponse
 import com.bliss.questionsapp.questions.commons.model.QuestionResponse
+import com.bliss.questionsapp.questions.commons.model.ShareResponse
 
 class QuestionRemoteDataSourceImpl : QuestionRemoteDataSource {
 
@@ -20,6 +22,18 @@ class QuestionRemoteDataSourceImpl : QuestionRemoteDataSource {
             questionService.updateVotesOfQuestion(
                 question.id,
                 question
+            )
+        }.result()
+    }
+
+    override suspend fun shareQuestion(
+        destinationEmail: String,
+        contentUrl: String
+    ): Resource<ShareResponse> {
+        return RetrofitResponse {
+            questionService.shareQuestion(
+                destinationEmail,
+                contentUrl
             )
         }.result()
     }

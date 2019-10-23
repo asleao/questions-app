@@ -31,5 +31,17 @@
         <argument
             android:name="questionId"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_questionDetailFragment_to_questionShareFragment"
+            app:destination="@id/questionShareFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionShareFragment"
+        android:name="com.bliss.questionsapp.questions.share.ui.view.QuestionShareFragment"
+        android:label="question_share_fragment"
+        tools:layout="@layout/question_share_fragment" >
+        <argument
+            android:name="questionId"
+            app:argType="integer" />
     </fragment>
 </navigation>

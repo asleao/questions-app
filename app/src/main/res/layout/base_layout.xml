@@ -60,6 +60,9 @@
         <Button
             android:id="@+id/bt_try_again"
             style="@style/MainButtonTheme"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="@dimen/spacing_default"
+            android:layout_marginEnd="@dimen/spacing_default"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"

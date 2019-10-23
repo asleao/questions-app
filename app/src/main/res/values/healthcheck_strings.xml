@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="status_ok"><b>OK</b></string>
+    <string name="health_problem">We are passing through a system instability :(</string>
 </resources>
