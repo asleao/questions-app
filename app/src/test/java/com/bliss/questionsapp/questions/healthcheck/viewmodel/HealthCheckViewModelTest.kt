@@ -77,7 +77,7 @@ internal class HealthCheckViewModelTest {
     @Nested
     inner class TryAgain {
         @Test
-        fun `when tryAgain is called, then getReviews should be called as well`() {
+        fun `when tryAgain is called, then checkHealthStatus should be called as well`() {
             every { runBlocking { healthRepository.checkHealthStatus() } } answers {
                 Resource.success(HealthResponse("OK"))
             }
