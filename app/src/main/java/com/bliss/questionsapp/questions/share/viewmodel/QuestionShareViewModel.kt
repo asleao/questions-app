@@ -9,6 +9,7 @@ import com.bliss.questionsapp.core.utils.isEmailValid
 import com.bliss.questionsapp.core.utils.validateResponse
 import com.bliss.questionsapp.questions.commons.data.QuestionRepository
 import com.bliss.questionsapp.questions.commons.model.ShareResponse
+import com.bliss.questionsapp.questions.commons.utils.buildQuestionUri
 import kotlinx.coroutines.launch
 
 class QuestionShareViewModel(
@@ -34,7 +35,8 @@ class QuestionShareViewModel(
         showLoading(true)
         email.value?.let { email ->
             viewModelScope.launch {
-                val resource = questionRepository.shareQuestion(email, "")
+                val resource =
+                    questionRepository.shareQuestion(email, questionId.buildQuestionUri())
                 showLoading(false)
                 resource.validateResponse(_share, _error)
             }
