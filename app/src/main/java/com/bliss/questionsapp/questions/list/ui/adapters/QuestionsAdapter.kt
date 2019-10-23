@@ -32,7 +32,7 @@ class QuestionsAdapter(
         fun bind(question: QuestionResponse, questionAction: (QuestionResponse) -> Unit) {
             binding.question = question
             setupQuestionThumbnail(question)
-            binding.ivQuestionThumbnail.setOnClickListener {
+            binding.clQuestionItem.setOnClickListener {
                 questionAction.invoke(question)
             }
         }
@@ -40,7 +40,6 @@ class QuestionsAdapter(
         private fun setupQuestionThumbnail(question: QuestionResponse) {
             Picasso.get()
                 .load(question.thumbUrl)
-                .placeholder(R.drawable.loading)
                 .error(R.drawable.no_photo)
                 .into(binding.ivQuestionThumbnail)
         }
