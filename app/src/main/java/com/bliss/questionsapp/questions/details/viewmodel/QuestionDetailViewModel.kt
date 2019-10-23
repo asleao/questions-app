@@ -23,7 +23,7 @@ class QuestionDetailViewModel(
         retrieveQuestion(questionId)
     }
 
-    private fun retrieveQuestion(questionId: Int) {
+    fun retrieveQuestion(questionId: Int) {
         showLoading(true)
         viewModelScope.launch {
             val resource = questionRepository.retrieveQuestion(questionId)
