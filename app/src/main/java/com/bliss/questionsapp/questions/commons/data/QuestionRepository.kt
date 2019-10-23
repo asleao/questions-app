@@ -6,6 +6,12 @@ import com.bliss.questionsapp.questions.commons.model.ShareResponse
 
 interface QuestionRepository {
 
+    suspend fun listAllQuestions(
+        limit: Int,
+        offset: Int,
+        filter: String = ""
+    ): Resource<List<QuestionResponse>>
+
     suspend fun retrieveQuestion(questionId: Int): Resource<QuestionResponse>
 
     suspend fun updateVotesOfQuestion(question: QuestionResponse): Resource<QuestionResponse>
