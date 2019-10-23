@@ -71,4 +71,19 @@ internal class QuestionDetailViewModelTest {
         }
     }
 
+    @Nested
+    inner class TryAgain {
+        @Test
+        fun `when tryAgain is called, then getReviews should be called as well`() {
+            every { runBlocking { questionRepository.retrieveQuestion(1) } } answers {
+                Resource.success(QuestionResponse(1, "title", "imageUrl", "thumbUrl", emptyList()))
+            }
+            setupViewModel()
+            viewModel.tryAgain()
+
+            Assertions.assertThat(viewModel.loading.value).isFalse()
+            Assertions.assertThat(viewModel.question.value).isNotNull()
+            Assertions.assertThat(viewModel.error.value).isNull()
+        }
+    }
 }
