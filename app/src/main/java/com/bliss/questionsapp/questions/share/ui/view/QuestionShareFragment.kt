@@ -9,6 +9,7 @@ import android.widget.Button
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bliss.questionsapp.R
 import com.bliss.questionsapp.core.network.BUSINESS_LOGIC_ERROR_CODE
@@ -48,14 +49,34 @@ class QuestionShareFragment : Fragment() {
         viewModel.share.observe(this, Observer { share ->
             viewModel.showLoading(false)
             if (share.status == resources.getString(R.string.status_ok)) {
-                viewModel.hasConnectionProblems(false)
+                showSuccessDialog()
             } else {
-                viewModel.hasConnectionProblems(true)
-                viewModel.changeErrorMessage(resources.getString(R.string.health_problem))
+                showFailDialog()
             }
         })
     }
 
+    private fun showSuccessDialog() {
+        AlertDialog.Builder(context)
+            .setTitle(resources.getString(R.string.share_success_dialog_title))
+            .setMessage(resources.getString(R.string.share_success_dialog_message))
+            .setCancelable(false)
+            .setPositiveButton(R.string.ok) { _, _ ->
+                findNavController().popBackStack()
+            }
+            .create()
+            .show()
+    }
+
+    private fun showFailDialog() {
+        AlertDialog.Builder(context)
+            .setTitle(resources.getString(R.string.share_fail_dialog_title))
+            .setMessage(resources.getString(R.string.share_fail_dialog_message))
+            .setCancelable(false)
+            .setPositiveButton(R.string.ok, null)
+            .create()
+            .show()
+    }
     private fun setupErrorObserver() {
         viewModel.error.observe(this, Observer { error ->
             viewModel.showLoading(false)
