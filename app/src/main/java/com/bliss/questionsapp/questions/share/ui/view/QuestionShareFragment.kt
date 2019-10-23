@@ -73,7 +73,7 @@ class QuestionShareFragment : Fragment() {
             .setTitle(GENERIC_MSG_ERROR_TITLE)
             .setMessage(error.message)
             .setCancelable(false)
-            .setPositiveButton(R.string.status_ok, null)
+            .setPositiveButton(R.string.ok, null)
             .create()
             .show()
     }
