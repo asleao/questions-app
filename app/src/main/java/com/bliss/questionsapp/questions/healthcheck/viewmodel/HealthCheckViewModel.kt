@@ -22,7 +22,7 @@ class HealthCheckViewModel(
         checkHealth()
     }
 
-    private fun checkHealth() {
+    fun checkHealth() {
         viewModelScope.launch {
             val resource = healthRepository.checkHealthStatus()
             resource.validateResponse(_health, _error)
