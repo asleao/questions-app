@@ -14,7 +14,6 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
-import org.assertj.core.api.Assertions
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.*
 import org.junit.jupiter.api.extension.ExtendWith
@@ -131,6 +130,21 @@ internal class QuestionDetailViewModelTest {
             assertThat(viewModel.loading.value).isFalse()
             assertThat(viewModel.question.value?.choices?.first()?.votes).isEqualTo(6)
             assertThat(viewModel.error.value).isNull()
+        }
+
+        @Test
+        fun `when the user vote is NOT successfull, then question should NOT be updated and error livedata should be filled`() {
+            every { runBlocking { questionRepository.updateVotesOfQuestion(questionResponse) } } answers {
+                Resource.error(Error(5, "Error", "Something went wrong"))
+            }
+
+            setupViewModel()
+            viewModel.retrieveQuestion(1)
+            viewModel.updateVotes(questionResponse.choices.first())
+
+            assertThat(viewModel.loading.value).isFalse()
+            assertThat(viewModel.question.value?.choices?.first()?.votes).isEqualTo(5)
+            assertThat(viewModel.error.value).isNotNull()
         }
     }
 }
