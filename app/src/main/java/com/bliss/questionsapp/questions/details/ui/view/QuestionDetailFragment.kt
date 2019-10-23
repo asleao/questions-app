@@ -88,10 +88,14 @@ class QuestionDetailFragment : Fragment() {
         )
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
-        setupTryAgainClickListener(binding.iBaseLayout.btTryAgain)
-        setupShareWithFriendsClickListener(binding.btShare)
+        setupClickListeners()
         setupRecyclerView(binding.rvChoices)
         return binding.root
+    }
+
+    private fun setupClickListeners() {
+        setupTryAgainClickListener(binding.iBaseLayout.btTryAgain)
+        setupShareWithFriendsClickListener(binding.btShare)
     }
 
     private fun setupShareWithFriendsClickListener(btShare: Button) {

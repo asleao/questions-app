@@ -3,6 +3,7 @@ package com.bliss.questionsapp.questions.commons.data
 import com.bliss.questionsapp.core.network.retrofit.model.Resource
 import com.bliss.questionsapp.questions.commons.data.remote.QuestionRemoteDataSource
 import com.bliss.questionsapp.questions.commons.model.QuestionResponse
+import com.bliss.questionsapp.questions.commons.model.ShareResponse
 
 class QuestionRepositoryImpl(
     private val questionRemoteDataSource: QuestionRemoteDataSource
@@ -14,5 +15,12 @@ class QuestionRepositoryImpl(
 
     override suspend fun updateVotesOfQuestion(question: QuestionResponse): Resource<QuestionResponse> {
         return questionRemoteDataSource.updateVotesOfQuestion(question)
+    }
+
+    override suspend fun shareQuestion(
+        destinationEmail: String,
+        contentUrl: String
+    ): Resource<ShareResponse> {
+        return questionRemoteDataSource.shareQuestion(destinationEmail, contentUrl)
     }
 }
