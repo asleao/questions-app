@@ -1,6 +1,6 @@
 # Question App
 
-This project allows users searching for questions, answer and share them with friends.
+This project allows users to search, answer and share questions with friends.
 
 ## Project organization
 
