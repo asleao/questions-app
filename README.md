@@ -32,9 +32,11 @@ To configure the project you have two options:
 
 * Option 1: Download using **git** doing the following command: 
 
+```
     git clone https://github.com/asleao/questions-app.git
-    
-* Option 2: Download the [zip]("https://github.com/asleao/questions-app/archive/master.zip") file and extract it on the folder of your preference.
+```
+
+* Option 2: Download the [zip](https://github.com/asleao/questions-app/archive/master.zip) file and extract it on the folder of your preference.
 
 After doing one of the steps above, just open the project on **android studio**. 
 
