@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -115,6 +116,7 @@ class QuestionDetailFragment : Fragment() {
         )
         rvChoices.layoutManager = layoutManager
         rvChoices.addItemDecoration(divider)
+        rvChoices.itemAnimator = DefaultItemAnimator()
     }
 
     private fun setupTryAgainClickListener(btTryAgain: Button) {

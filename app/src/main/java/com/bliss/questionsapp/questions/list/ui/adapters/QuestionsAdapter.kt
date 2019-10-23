@@ -2,16 +2,21 @@ package com.bliss.questionsapp.questions.list.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
 import com.bliss.questionsapp.R
 import com.bliss.questionsapp.databinding.QuestionItemBinding
 import com.bliss.questionsapp.questions.commons.model.QuestionResponse
 import com.squareup.picasso.Picasso
+import java.util.*
 
 class QuestionsAdapter(
     private val questions: List<QuestionResponse>,
     private val questionAction: (QuestionResponse) -> Unit
-) : RecyclerView.Adapter<QuestionsAdapter.QuestionViewHolder>() {
+) : RecyclerView.Adapter<QuestionsAdapter.QuestionViewHolder>(), Filterable {
+
+    var filteredQuestions = questions
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuestionViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -20,11 +25,30 @@ class QuestionsAdapter(
     }
 
     override fun getItemCount(): Int {
-        return questions.size
+        return filteredQuestions.size
     }
 
     override fun onBindViewHolder(holder: QuestionViewHolder, position: Int) {
-        holder.bind(questions[position], questionAction)
+        holder.bind(filteredQuestions[position], questionAction)
+    }
+
+    override fun getFilter(): Filter {
+        return object : Filter() {
+            override fun performFiltering(query: CharSequence): FilterResults {
+                filteredQuestions = questions.filter { question ->
+                    query.toString().toLowerCase(Locale.getDefault()) in question.title.toLowerCase(Locale.getDefault())
+                }
+                val filteredResults = FilterResults()
+                filteredResults.values = filteredQuestions
+
+                return filteredResults
+            }
+
+            override fun publishResults(query: CharSequence, results: FilterResults) {
+                filteredQuestions = results.values as List<QuestionResponse>
+                notifyDataSetChanged()
+            }
+        }
     }
 
     class QuestionViewHolder(private val binding: QuestionItemBinding) :

@@ -1,13 +1,13 @@
 package com.bliss.questionsapp.questions.list.ui.view
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,7 +18,8 @@ import com.bliss.questionsapp.questions.list.ui.adapters.QuestionsAdapter
 import com.bliss.questionsapp.questions.list.viewmodel.QuestionListViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class QuestionListFragment : Fragment() {
+class QuestionListFragment : Fragment(), SearchView.OnQueryTextListener {
+
 
     private val viewModel: QuestionListViewModel by viewModel()
     private lateinit var binding: QuestionListFragmentBinding
@@ -73,6 +74,7 @@ class QuestionListFragment : Fragment() {
             container,
             false
         )
+        setHasOptionsMenu(true)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
         setupRecyclerView(binding.rvQuestions)
@@ -87,5 +89,26 @@ class QuestionListFragment : Fragment() {
         )
         rvQuestions.layoutManager = layoutManager
         rvQuestions.addItemDecoration(divider)
+        rvQuestions.itemAnimator = DefaultItemAnimator()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_questions, menu)
+        val menuItem = menu.findItem(R.id.action_search)
+        val searchView = menuItem.actionView as SearchView
+        searchView.setOnQueryTextListener(this)
+        searchView.maxWidth = Integer.MAX_VALUE
+        searchView.queryHint = resources.getString(R.string.search_placeholder)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        (binding.rvQuestions.adapter as QuestionsAdapter).filter.filter(query)
+        return false
+    }
+
+    override fun onQueryTextChange(query: String?): Boolean {
+        (binding.rvQuestions.adapter as QuestionsAdapter).filter.filter(query)
+        return false
     }
 }
